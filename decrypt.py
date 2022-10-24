@@ -1,11 +1,13 @@
+from tkinter import Tk     
+from tkinter.filedialog import askopenfilename
+
+Tk().withdraw()  
+filename = askopenfilename() 
+print(filename)
 
 
-fernet = Fernet (key)
+import pyAesCrypt
+password = input()
+#decrypt 
 
-with open ('test.txt', 'rb') as enc_file:
-    encrypted = enc_file.read()
-
-decrypted = fernet.decrypt(encrypted)
-
-with open ('test.txt', 'wb') as dec_file 
-    dec_file.write(decrypted)
+pyAesCrypt.decryptFile(filename, filename +"out" +".txt", password)
