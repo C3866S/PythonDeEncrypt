@@ -1,21 +1,12 @@
-from cryptography.frenet import Fernet
+from tkinter import Tk     
+from tkinter.filedialog import askopenfilename
 
-key = Fernet.generate_key()
+Tk().withdraw()  
+filename = askopenfilename() 
+print(filename)
 
-#write
-with open ('filekey.key', 'wb') as filekey:
-    filekey.write(key)
+#Encryptiom
+import pyAesCrypt
 
-#read
-with open ('filekey.key', 'rb') as filekey:
-    key = filekey.red()
-
-fernet = Fernet(key)
- with open ('test.txt', 'rb') as file:
-     original = file.read()
-
-encrypted = fernet.encrypted(original)
-
-with open('test.txt', 'wb') as encrypted_file:
-    encrypted_file.write(encrypted)
-
+password = input()
+pyAesCrypt.encryptFile( filename, filename + ".aes", password)
